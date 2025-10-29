@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MPSEDC - आधिकारिक वेबसाइट</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+      <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+      <style>
+        /* Set Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom scrollbar for table on small screens (optional) */
+        .table-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1; /* cool-gray-300 */
+            border-radius: 4px;
+        }
+        .table-container::-webkit-scrollbar-track {
+            background-color: #f1f5f9; /* cool-gray-100 */
+        }
+
+        /* Style for no results row */
+        .no-results-row {
+            display: none; /* Hidden by default */
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom focus ring for accessibility */
+        select:focus, input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            border-color: rgb(59 130 246);
+        }
+    </style>
+    <style>
+        
+      /* ========================================================= */
+      /* GLOBAL STYLES & COLOR PALETTE */
+      /* ========================================================= */
+      :root {
+        /* Professional Color Palette */
+        --primary-navy: #0d2c59;
+        --secondary-blue: #023e67;
+        --accent-gold: #7cd1c0;
+        --text-dark: #333333;
+        --text-light: #ffffff;
+        --bg-light: #f8fafc;
+        --bg-medium: #e9eef4;
+
+        /* Shadows & Borders */
+        --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
+        --border-color: #dde2e8;
+
+        /* Transitions */
+        --transition-speed: 0.4s ease-in-out;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--bg-light);
+        background-image: url("https://raw.githubusercontent.com/Amanpatel83/MPSEDCNEW3/main/bgmp.png");
+        background-attachment: fixed; /* image ko fixed karne ke liye */
+        background-size: cover; /* poore screen me adjust hoga */
+        background-position: center; /* center me rakhega */
+        scroll-behavior: smooth;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      /* Responsive Body Font Size */
+      body {
+        font-size: 16px;
+      }
+
+      a {
+        color: var(--secondary-blue);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+      a:hover {
+        color: var(--accent-gold);
+      }
+
+      /* ========================================================= */
+      /* HEADER & NAVIGATION */
+      /* ========================================================= */
+      .header-container {
+        background-color: var(--text-light);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background-color: var(--primary-navy);
+        color: var(--text-light);
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        flex-wrap: wrap;
+        /* gap: 10px; */
+      }
+
+      .top-bar a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+        margin: 0 5px;
+      }
+      .top-bar a:hover {
+        color: var(--accent-gold);
+      }
+      .top-bar-section.font-size-controls button {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: var(--text-light);
+        padding: 2px 6px;
+        font-size: 12px;
+        margin-right: 2px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          border-color var(--transition-speed);
+      }
+      .top-bar-section.font-size-controls button:hover {
+        background-color: var(--accent-gold);
+        border-color: var(--accent-gold);
+      }
+      .top-bar-section.search-lang-controls {
+        display: flex;
+        align-items: center; /* vertically center */
+        gap: 8px; /* बीच में space */
+      }
+
+      .top-bar-section.search-lang-controls input {
+        flex: 1; /* input zyada space लेगा */
+        max-width: 200px; /* optional: input width control */
+      }
+
+      /* Logo and Title Section */
+      .logo-branding {
+        background-color: var(--text-light);
+        padding: 5px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-branding img {
+        max-height: 80px;
+        width: auto;
+        transition: transform 0.3s ease;
+      }
+      .logo-branding img:hover {
+        transform: scale(1.05);
+      }
+      .main-title {
+        text-align: center;
+        flex-grow: 1;
+        padding: 0 25px;
+      }
+      .main-title h1 {
+        margin: 0;
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-weight: 700;
+        color: var(--primary-navy);
+        letter-spacing: 0.5px;
+      }
+      .main-title .tagline {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        color: var(--text-dark);
+        font-weight: 500;
+      }
+
+      /* Main Nav */
+      .main-nav {
+        background-color: var(--bg-medium);
+        border-top: 1px solid var(--border-color);
+      }
+      .main-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .main-nav li {
+        position: relative;
+      }
+      .main-nav a {
+        display: flex;
+        align-items: center;
+        padding: 12px 18px;
+        color: var(--primary-navy);
+        font-weight: 600;
+        transition: all var(--transition-speed);
+      }
+      .main-nav a i {
+        margin-right: 8px;
+      }
+      .main-nav a:hover,
+      .main-nav a:focus {
+        background-color: var(--secondary-blue);
+        color: var(--text-light);
+      }
+
+      /* Dropdown Menu */
+      .main-nav .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--text-light);
+        min-width: 220px;
+        box-shadow: var(--shadow-subtle);
+        display: none;
+        z-index: 100;
+        padding: 10px 0;
+        border-top: 3px solid var(--accent-gold);
+        border-radius: 0 0 8px 8px;
+      }
+      .has-submenu:hover > .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu li a {
+        padding: 12px 20px;
+        color: var(--text-dark);
+        font-weight: 400;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .dropdown-menu li:last-child a {
+        border-bottom: none;
+      }
+      .dropdown-menu li a:hover {
+        background-color: var(--bg-medium);
+        color: var(--secondary-blue);
+      }
+
+      /* Mobile Nav */
+      .hamburger-menu {
+        display: none;
+      }
+      .mobile-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        z-index: 999;
+      }
+      .mobile-nav-sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100%;
+        background: var(--bg-light);
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+        transition: left 0.4s ease;
+        overflow-y: auto;
+        z-index: 1000;
+        padding: 20px;
+      }
+      .mobile-nav-sidebar.active {
+        left: 0;
+      }
+      .close-btn {
+        text-align: right;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--primary-navy);
+      }
+      .mobile-main-menu {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      .mobile-main-menu li {
+        border-bottom: 1px solid var(--border-color);
+      }
+      .mobile-main-menu li a {
+        display: block;
+        padding: 15px 0;
+        text-decoration: none;
+        color: var(--primary-navy);
+        font-weight: 600;
+      }
+      .mobile-main-menu li a:hover {
+        background-color: var(--bg-medium);
+      }
+      .mobile-main-menu .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0 15px;
+        min-width: auto;
+        border-top: none;
+      }
+
+        /* --- Main Content Styling (Revised with Direct Colors) --- */
+        main {
+            flex-grow: 1;
+            padding-bottom: 50px;
+            /* Using a cleaner, soft off-white background for the main area */
+            background-color: #f8f8f8; 
+        }
+
+        .breadcrumb-area {
+            /* var(--bg-dark) = #f0f4f9 */
+            /* var(--primary-color) = #0d47a1 */
+            background-color: #f0f4f9; 
+            padding: 15px 0;
+            border-bottom: 3px solid #0d47a1;
+        }
+
+        .breadcrumb-area .title {
+            /* var(--text-dark) = #333 */
+            color: #333;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .content-block {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        /* Content Panel Switching */
+        .content-panel {
+            display: none; /* Hidden by default */
+        }
+        .content-panel.active {
+            display: block; /* Only active panel is visible */
+        }
+
+
+        .section-navigation {
+            width: 40%;
+            padding: 20px;
+            /* var(--bg-dark) = #f0f4f9 */
+            background-color: #f0f4f9;
+            border-radius: 8px;
+            /* Added a slightly stronger shadow for definition */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            height: fit-content;
+        }
+
+        .section-navigation h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            /* var(--secondary-color) = #2196f3 */
+            border-bottom: 2px solid #2196f3;
+            padding-bottom: 5px;
+        }
+
+        .sub-nav-list a {
+            display: block;
+            padding: 10px 10px;
+            margin-bottom: 5px;
+            /* var(--text-dark) = #333 */
+            color: #333; 
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .sub-nav-list a:hover {
+            background-color: #e0e0e0;
+            /* var(--primary-color) = #0d47a1 */
+            color: #0d47a1; 
+        }
+
+        .sub-nav-list a.active {
+            /* var(--primary-color) = #0d47a1 */
+            /* var(--text-light) = #f4f4f4 */
+            background-color: #0d47a1;
+            color: #f4f4f4; 
+            font-weight: 700;
+        }
+        .sub-nav-list a.active:hover {
+            /* var(--secondary-color) = #2196f3 */
+            /* var(--text-light) = #f4f4f4 */
+            background-color: #2196f3;
+            color: #f4f4f4;
+        }
+
+        .mission-content {
+            flex-grow: 1;
+            padding-left: 40px;
+        }
+
+        .mission-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            /* var(--accent-color) = #4CAF50 */
+            border-bottom: 3px solid #4CAF50;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .mission-content h3 {
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            /* var(--secondary-color) = #2196f3 */
+            color: #2196f3;
+        }
+
+        .mission-points {
+            margin-left: 20px;
+        }
+
+        .mission-points li {
+            /* var(--bg-dark) = #f0f4f9 */
+            /* var(--accent-color) = #4CAF50 */
+            background-color: #f0f4f9;
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-points strong {
+            display: block;
+            font-size: 18px;
+            /* var(--primary-color) = #0d47a1 */
+            color: #0d47a1;
+            margin-bottom: 5px;
+        }
+        
+        .placeholder-content {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 18px;
+            line-height: 1.8;
+            min-height: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Enhanced shadow */
+        }
+
+        .last-updated-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 30px;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+      /* Footer */
+      .footer {
+        background-color: var(--primary-navy);
+        color: var(--text-light);
+        padding: 15px 0;
+      }
+      .footer .container {
+        max-width: 95%;
+      }
+      .footer h5 {
+        color: var(--text-light);
+        font-weight: 600;
+        margin-bottom: 15px;
+        position: relative;
+        font-size: 1.1rem;
+      }
+      .footer h5::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: var(--accent-gold);
+        margin-top: 5px;
+      }
+      .footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer ul li {
+        margin-bottom: 8px;
+      }
+      .footer ul li a {
+        color: var(--text-light);
+        transition: color var(--transition-speed);
+      }
+      .footer ul li a:hover {
+        color: var(--accent-gold);
+      }
+      .footer ul li a .fas {
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+      .contact-info-list a {
+        color: var(--text-light);
+      }
+      .contact-info-list a .fas {
+        color: var(--accent-gold);
+      }
+      .footer-bottom {
+        background-color: var(--secondary-blue);
+        color: var(--text-light);
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 0.8rem;
+      }
+      .footer-bottom a {
+        color: var(--text-light);
+        margin: 0 6px;
+      }
+      .footer-bottom a:hover {
+        color: var(--accent-gold);
+      }
+      .footer-bottom strong {
+        color: var(--accent-gold);
+      }
+      .footer-bottom .legal-links {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      /* ========================================================= */
+      /* RESPONSIVE DESIGN */
+      /* ========================================================= */
+      @media (max-width: 992px) {
+        .hamburger-menu {
+          display: block;
+        }
+        .main-nav {
+          display: none;
+        }
+        .logo-branding {
+          justify-content: space-between;
+          padding: 10px 20px;
+        }
+        .main-title {
+          text-align: left;
+          padding-left: 10px;
+        }
+        .main-title h1 {
+          font-size: 1.4rem;
+        }
+        .main-title .tagline {
+          font-size: 0.9rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .top-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 15px 20px;
+        }
+        .top-bar-section {
+          flex-basis: 100%;
+          text-align: center;
+          margin-top: 10px;
+        }
+        .top-bar-section.search-lang-controls {
+          justify-content: center;
+        }
+        .combined-content {
+          padding: 15px;
+        }
+        .projects-section-box .row {
+          grid-template-columns: 1fr;
+        }
+        .latest-updates-box {
+          max-height: none;
+          margin-top: 30px;
+        }
+        .col-lg-9,
+        .col-lg-3 {
+          width: 100%;
+        }
+        .footer .row > div {
+          margin-bottom: 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .top-bar,
+        .logo-branding,
+        .footer-bottom {
+          padding: 10px 15px;
+        }
+           .combined-content {
+          padding: 15px;
+          flex-direction: column;
+        }
+        .AboutMPSEDC {
+          padding: 25px;
+        }
+        .AboutMPSEDC h1 {
+          font-size: 1.8rem;
+        }
+        .projects-section-box h2,
+        .latest-updates-box h2 {
+          font-size: 1.5rem;
+        }
+        .projects-section-box .card {
+          height: 220px;
+        }
+        .updates-container {
+          max-height: 400px;
+        }
+      }
+      /* MOBILE / TABLET OPTIMIZATIONS (Max Width 992px) */
+/* ========================================================= */
+
+@media (max-width: 992px) {
+    /* GENERAL ADJUSTMENTS */
+    .header-container {
+        padding: 0;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+        padding: 10px 15px; /* Thinner padding */
+        justify-content: center;
+        gap: 5px;
+        flex-direction: row; /* Keep elements in a row as much as possible, but wrap */
+    }
+    .top-bar-section {
+        margin-top: 0;
+        flex-basis: auto; /* Allow sections to share space */
+    }
+    .top-bar-section.font-size-controls {
+        order: 1; /* First element */
+        flex-shrink: 0;
+    }
+    .top-bar-section:nth-child(2) {
+        order: 3; /* Third element */
+        flex-basis: 100%; /* Full width for accessibility links */
+        text-align: center;
+        margin-top: 5px;
+    }
+    .top-bar-section:nth-child(3) {
+        order: 2; /* Second element */
+        display: none; /* Hide secondary links on smaller screens for cleaner look */
+    }
+    .top-bar-section.search-lang-controls {
+        order: 4; /* Fourth element */
+        flex-basis: 100%;
+        margin-top: 10px;
+    }
+    .top-bar-section.search-lang-controls input {
+        max-width: none;
+    }
+
+    /* LOGO & BRANDING */
+    .logo-branding {
+        padding: 10px 15px;
+    }
+    .logo-branding img {
+        max-height: 55px; /* Smaller logos */
+    }
+    .main-title {
+        padding: 0 10px;
+    }
+    .main-title h1 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+    .main-title .tagline {
+        font-size: 0.8rem;
+    }
+    .hamburger-menu {
+        font-size: 1.8rem;
+        color: var(--primary-navy);
+    }
+    .mobile-nav-sidebar {
+        width: 250px;
+    }
+
+    /* MAIN CONTENT LAYOUT */
+    .combined-content {
+        flex-direction: column; /* Stack projects and updates vertically */
+        padding: 20px 15px;
+    }
+    .projects-section-container,
+    .latest-updates-container {
+        width: 100%; /* Full width */
+        margin: 0;
+        padding: 0;
+    }
+    .latest-updates-box {
+        margin-top: 30px;
+    }
+
+    /* PROJECT CARDS */
+    .projects-section-box .row {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* More compact grid */
+        gap: 15px;
+    }
+    .projects-section-box .card {
+        height: 250px;
+    }
+}
+
+/* ========================================================= */
+/* EXTRA SMALL SCREEN OPTIMIZATIONS (Max Width 480px) */
+/* ========================================================= */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+
+    /* LOGO & BRANDING */
+    .logo-branding img {
+        max-height: 45px;
+    }
+    .main-title h1 {
+        font-size: 1.0rem;
+    }
+    .main-title .tagline {
+        display: none; /* Hide tagline on smallest screen to save space */
+    }
+
+    /* ABOUT SECTION */
+    .AboutMPSEDC {
+        margin: 30px 15px;
+        padding: 20px;
+        width: auto;
+    }
+    .AboutMPSEDC h1 {
+        font-size: 1.6rem;
+    }
+    .AboutMPSEDC p {
+        font-size: 1rem;
+    }
+
+    /* SLIDER */
+    .Slider .slider-container {
+        height: 300px; /* Shorter slider on small screens */
+    }
+    .Slider button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* PROJECT CARDS */
+    .projects-section-box .row {
+        grid-template-columns: 1fr; /* Single column layout for project cards */
+    }
+    .projects-section-box .card {
+        height: 200px;
+    }
+    .projects-section-box .card-body {
+        padding: 8px;
+    }
+
+    /* LATEST UPDATES */
+    .latest-updates-box h2 {
+        font-size: 1.4rem;
+    }
+    .updates-container {
+        max-height: 350px;
+    }
+    .update-item {
+        flex-direction: column; /* Stack date and text */
+        gap: 0.5rem;
+        align-items: center;
+        text-align: center;
+    }
+    .update-item .date {
+        min-width: auto;
+    }
+    .update-item .day {
+        font-size: 2rem;
+    }
+    .update-item .text {
+        font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+    .footer .row > div {
+        flex-basis: 50%; /* Two columns per row */
+        margin-bottom: 20px;
+    }
+    .footer-bottom {
+        font-size: 0.75rem;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <header class="site-header">
+        <div class="top-bar">
+          <div
+            class="top-bar-section font-size-controls"
+            role="group"
+            aria-label="Font size controls"
+          >
+            <button id="decrease" aria-label="Decrease font size">A–</button>
+            <button id="default" aria-label="Default font size">A</button>
+            <button id="increase" aria-label="Increase font size">A+</button>
+          </div>
+          <div class="top-bar-section">
+            <a href="#"><i class="fas fa-universal-access"></i> स्क्रीन रीडर</a>
+            <a href="#main-content">मुख्य सामग्री पर जाएं</a>
+            <a href="#navigation">नेविगेशन पर जाएं</a>
+          </div>
+          <div class="top-bar-section">
+            <a href="#">IT Policy‑2023</a>
+            <a href="#">Security Audit Login</a>
+            <a href="#">CMS Login</a>
+            <a href="#">EOI Form</a>
+          </div>
+          <div class="top-bar-section search-lang-controls">
+            <input
+              type="text"
+              placeholder="खोजें..."
+              class="form-control"
+              aria-label="Search the website"
+            />
+            <button class="btn btn-light btn-sm">हिंदी</button>
+          </div>
+        </div>
+
+        <div class="logo-branding">
+          <a href="/">
+            <img
+              src="https://mpsedc.mp.gov.in/Uploaded%20Document/header/28072020125926mpsedclogo.png"
+              alt="MPSEDC Logo"
+            />
+          </a>
+          <div class="main-title">
+            <h1>M.P. STATE ELECTRONICS DEVELOPMENT CORPORATION LTD.</h1>
+            <div class="tagline">A Government of MP Undertaking</div>
+          </div>
+          <a href="/">
+            <img
+              src="https://raw.githubusercontent.com/Amanpatel83/MPSEDCWebsite/main/mplogo.png"
+              alt="Govt of MP Logo"
+            />
+          </a>
+          <div class="hamburger-menu" onclick="openMobileNav()">
+            <i
+              class="fas fa-bars"
+              aria-expanded="false"
+              aria-controls="mobile-nav-sidebar"
+            ></i>
+          </div>
+        </div>
+
+        <nav id="navigation" class="main-nav" role="navigation">
+          <ul id="navList">
+            <li>
+              <a href="#"><i class="fas fa-home"></i> होम</a>
+            </li>
+            <li class="has-submenu">
+              <a href="/LAST/page.html"
+                ><i class="fas fa-building"></i> हमारे बारे में
+                <i class="fas fa-caret-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://127.0.0.1:5500/LAST/page.html#"
+                    ><i class="fas fa-dot-circle"></i> उद्देश्य</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-bullseye"></i> मिशन</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-eye"></i> दृष्टिकोण</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-sitemap"></i> संगठन</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-users-cog"></i> निदेशक मंडल</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-network-wired"></i> सहायक कंपनियां</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-user-tie"></i> प्रमुख प्रबंधकीय कार्मिक</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-id-card-alt"></i> MPSEDC पंजीकरण विवरण</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-briefcase"></i> रिक्ति</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#"
+                ><i class="fas fa-scroll"></i> नीतियाँ और नियम
+                <i class="fas fa-caret-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#"><i class="fas fa-book-open"></i> IT पॉलिसी</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-file-invoice-dollar"></i> खरीद नियम</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-balance-scale"></i> सेवा नियम</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-user-shield"></i> सुरक्षा दिशानिर्देश</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-users"></i> HR नीतियां</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-clipboard-list"></i> सर्कुलर और आदेश</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-hand-holding-heart"></i> CSR</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-chart-line"></i> निवेश पोर्टल</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-gavel"></i> निविदाएं</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-question-circle"></i> RTI</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-newspaper"></i> मीडिया</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-tachometer-alt"></i> डैशबोर्ड</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-phone-alt"></i> संपर्क करें</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div
+        class="mobile-nav-overlay"
+        id="mobileNavOverlay"
+        onclick="closeMobileNav()"
+      ></div>
+      <div class="mobile-nav-sidebar" id="mobileNavSidebar">
+        <div class="close-btn" onclick="closeMobileNav()">
+          <i class="fas fa-times" aria-label="Close menu"></i>
+        </div>
+        <ul class="mobile-main-menu">
+          <li>
+            <a href="#"><i class="fas fa-home"></i> होम</a>
+          </li>
+          <li class="has-submenu">
+            <a href="#"
+              ><i class="fas fa-building"></i> हमारे बारे में
+              <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#"><i class="fas fa-dot-circle"></i> उद्देश्य</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-bullseye"></i> मिशन</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-eye"></i> दृष्टिकोण</a>
+              </li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#"
+              ><i class="fas fa-scroll"></i> नीतियाँ और नियम
+              <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#"><i class="fas fa-book-open"></i> IT पॉलिसी</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-file-invoice-dollar"></i> खरीद नियम</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-hand-holding-heart"></i> CSR</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-gavel"></i> निविदाएं</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-phone-alt"></i> संपर्क करें</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+     <main class="w-4/5 mx-auto px-2 sm:px-6 lg:px-8 py-8 md:py-12">
+        
+        <!-- Page Title and Breadcrumbs -->
+        <div class="mb-8">
+            <section class="breadcrumb-area">
+            <div class="row wow fadeInUp" data-wow-delay=".15s" data-wow-duration="1s">
+                <div class="col-12 col-md-6">
+                    <div class="brand-title text-left mb-30">
+                         <a href="#">Home</a> / <a href="#">Circulars & Orders</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Circulars & Orders</h1>
+
+        </div>
+
+        <!-- Search Bar -->
+        <div class="mb-6">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" id="searchInput" class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg shadow-sm leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Search by subject...">
+            </div>
+        </div>
+
+        <!-- Responsive Table Container -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <!-- Responsive wrapper for horizontal scroll on mobile -->
+            <div class="overflow-x-auto table-container">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                S.No
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Subject
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Date
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Download
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="circularsTableBody" class="bg-white divide-y divide-gray-200">
+                        
+                        <!-- Placeholder Data Row 1 -->
+                        <tr class="data-row">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                1
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-700 max-w-sm truncate" title="Guidelines for new IT project procurement">
+                                Guidelines for new IT project procurement
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                2024-10-28
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <svg class="w-4 h-4 mr-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                    PDF (2.1 MB)
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Placeholder Data Row 2 -->
+                        <tr class="data-row">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-700 max-w-sm truncate" title="Updated holiday list for 2025">
+                                Updated holiday list for 2025
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                2024-10-25
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <svg class="w-4 h-4 mr-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                    PDF (800 KB)
+                                </a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Placeholder Data Row 3 -->
+                        <tr class="data-row">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                3
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-700 max-w-sm truncate" title="Tender notice for annual maintenance contract">
+                                Tender notice for annual maintenance contract
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                2024-10-22
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <svg class="w-4 h-4 mr-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                    PDF (1.2 MB)
+                                </a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Placeholder Data Row 4 -->
+                        <tr class="data-row">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                4
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-700 max-w-sm truncate" title="Circular regarding office timing adjustments">
+                                Circular regarding office timing adjustments
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                2024-10-20
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                    <svg class="w-4 h-4 mr-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                    PDF (350 KB)
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- "No results" row -->
+                        <tr id="noResultsRow" class="no-results-row">
+                            <td colspan="4" class="px-6 py-4 text-center text-gray-500">
+                                No circulars found matching your search.
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <!-- Footer Section -->
+    <div class="foot mt-auto">
+      <footer class="footer">
+        <div class="container">
+          <div class="row text-start">
+            <div class="col-md-3 col-sm-6">
+              <h5>महत्वपूर्ण लिंक्स</h5>
+              <ul>
+                <li>
+                  <a href="https://www.cdac.in" target="_blank"
+                    ><i class="fas fa-microchip"></i> सेंटर फॉर डेवलपमेंट ऑफ
+                    एडवांस्ड कंप्यूटिंग (C-DAC)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://mp.gov.in" target="_blank"
+                    ><i class="fas fa-globe"></i> मध्य प्रदेश सरकार</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.cert-in.org.in" target="_blank"
+                    ><i class="fas fa-shield-alt"></i> इंडियन कंप्यूटर इमरजेंसी
+                    रिस्पांस टीम</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.meity.gov.in" target="_blank"
+                    ><i class="fas fa-code"></i> इलेक्ट्रॉनिक्स और आईटी मंत्रालय
+                    (भारत सरकार)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://cmhelpline.mp.gov.in" target="_blank"
+                    ><i class="fas fa-headset"></i> एमपी सीएम हेल्पलाइन</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.csc.gov.in" target="_blank"
+                    ><i class="fas fa-user-cog"></i> एमपी ग्राहक सेवा केंद्र
+                    (CSC)</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <h5>&nbsp;</h5>
+              <ul>
+                <li>
+                  <a href="https://invest.mp.gov.in" target="_blank"
+                    ><i class="fas fa-industry"></i> एमपी उद्योग और निवेश
+                    संवर्धन विभाग</a
+                  >
+                </li>
+                <li>
+                  <a href="https://msme.mp.gov.in" target="_blank"
+                    ><i class="fas fa-briefcase"></i> एमपी सूक्ष्म, लघु और मध्यम
+                    उद्यम विभाग</a
+                  >
+                </li>
+                <li>
+                  <a href="https://dst.mp.gov.in" target="_blank"
+                    ><i class="fas fa-flask"></i> एमपी विज्ञान और प्रौद्योगिकी
+                    विभाग</a
+                  >
+                </li>
+                <li>
+                  <a href="https://finance.mp.gov.in" target="_blank"
+                    ><i class="fas fa-coins"></i> एमपी वित्त विभाग</a
+                  >
+                </li>
+                <li>
+                  <a href="https://gad.mp.gov.in" target="_blank"
+                    ><i class="fas fa-users-cog"></i> एमपी सामान्य प्रशासन
+                    विभाग</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <h5>&nbsp;</h5>
+              <ul>
+                <li>
+                  <a href="https://www.invest.mp.gov.in" target="_blank"
+                    ><i class="fas fa-city"></i> एमपी औद्योगिक विकास निगम</a
+                  >
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fas fa-network-wired"></i> एमपी राज्य एजेंसी फॉर
+                    पब्लिक सर्विसेज</a
+                  >
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fas fa-handshake"></i> एमपी वेंचर फाइनेंस
+                    लिमिटेड</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.mponline.gov.in" target="_blank"
+                    ><i class="fas fa-desktop"></i> एमपी ऑनलाइन लिमिटेड</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.nic.in" target="_blank"
+                    ><i class="fas fa-building"></i> एनआईसी (भारत)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://mp.nic.in" target="_blank"
+                    ><i class="fas fa-map-marker-alt"></i> एनआईसी (एमपी)</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <h5>&nbsp;</h5>
+              <ul>
+                <li>
+                  <a href="https://www.nisg.org" target="_blank"
+                    ><i class="fas fa-university"></i> नेशनल इंस्टीट्यूट फॉर
+                    स्मार्ट गवर्नमेंट</a
+                  >
+                </li>
+                <li>
+                  <a href="https://india.gov.in" target="_blank"
+                    ><i class="fas fa-link"></i> नेशनल पोर्टल ऑफ इंडिया</a
+                  >
+                </li>
+                <li>
+                  <a href="https://niti.gov.in" target="_blank"
+                    ><i class="fas fa-lightbulb"></i> नीति आयोग</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.stpi.in" target="_blank"
+                    ><i class="fas fa-code-branch"></i> सॉफ्टवेयर टेक्नोलॉजी
+                    पार्क्स ऑफ इंडिया</a
+                  >
+                </li>
+                <li>
+                  <a href="https://guidelines.gov.in" target="_blank"
+                    ><i class="fas fa-gavel"></i> वेबसाइट दिशानिर्देश</a
+                  >
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fas fa-exclamation-triangle"></i> DWRS -
+                    आपदासुरक्षा</a
+                  >
+                </li>
+                <li>
+                  <a href="#" target="_blank"
+                    ><i class="fas fa-drone"></i> ड्रोन पहल (DaaS)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://mpgeoportal.gov.in" target="_blank"
+                    ><i class="fas fa-globe-africa"></i> एमपी जियोपोर्टल</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div class="footer-bottom">
+        &copy; 2025 <strong>MPSeDC</strong>. सर्वाधिकार सुरक्षित।
+        <br />
+        <a href="#">अस्वीकरण</a> | <a href="#">नियम और शर्तें</a> |
+        <a href="#">कॉपीराइट</a> | <a href="#">गोपनीयता</a> |
+        <a href="#">प्रतिक्रिया</a> |
+        <a href="#">साइट मैप</a>
+        <br />
+        सेंटर ऑफ एक्सीलेंस (CoE), <strong>MPSeDC</strong> द्वारा डिज़ाइन और
+        विकसित
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // === Mobile Nav Functions ===
+      function openMobileNav() {
+        const sidebar = document.getElementById("mobileNavSidebar");
+        const overlay = document.getElementById("mobileNavOverlay");
+        sidebar.classList.add("active");
+        overlay.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+      function closeMobileNav() {
+        const sidebar = document.getElementById("mobileNavSidebar");
+        const overlay = document.getElementById("mobileNavOverlay");
+        sidebar.classList.remove("active");
+        overlay.style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      // === Font Size Adjustments ===
+      const body = document.body;
+      const increaseBtn = document.getElementById("increase");
+      const decreaseBtn = document.getElementById("decrease");
+      const defaultBtn = document.getElementById("default");
+      let currentFontSize = 16;
+      increaseBtn.addEventListener("click", () => {
+        currentFontSize += 2;
+        body.style.fontSize = `${currentFontSize}px`;
+      });
+      decreaseBtn.addEventListener("click", () => {
+        currentFontSize -= 2;
+        body.style.fontSize = `${currentFontSize}px`;
+      });
+      defaultBtn.addEventListener("click", () => {
+        currentFontSize = 16;
+        body.style.fontSize = "";
+      });
+      document
+        .querySelectorAll(".mobile-main-menu .has-submenu > a")
+        .forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const submenu = this.nextElementSibling;
+            const parentLi = this.parentElement;
+            if (submenu) {
+              const isExpanded = parentLi.classList.contains("open");
+              document
+                .querySelectorAll(".mobile-main-menu .has-submenu.open")
+                .forEach((openLi) => {
+                  if (openLi !== parentLi) {
+                    openLi.classList.remove("open");
+                    openLi.querySelector(".dropdown-menu").style.display =
+                      "none";
+                  }
+                });
+              parentLi.classList.toggle("open");
+              submenu.style.display = isExpanded ? "none" : "block";
+            }
+          });
+        });
+
+    
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get filter inputs
+            const filterNo = document.getElementById('filter-no');
+            const filterName = document.getElementById('filter-name');
+            const filterType = document.getElementById('filter-type');
+            const filterStatus = document.getElementById('filter-status');
+            
+            // Get table body rows
+            const tableRows = document.querySelectorAll('#tenders-table tbody tr');
+
+            // Function to perform filtering
+            function filterTenders() {
+                const noValue = filterNo.value.toLowerCase().trim();
+                const nameValue = filterName.value.toLowerCase().trim();
+                const typeValue = filterType.value.toLowerCase();
+                const statusValue = filterStatus.value.toLowerCase();
+
+                // Loop through all table rows
+                tableRows.forEach(row => {
+                    // Get text content from cells for matching
+                    const rowNo = row.cells[1].textContent.toLowerCase().trim();
+                    const rowName = row.cells[2].textContent.toLowerCase().trim();
+                    const rowType = row.cells[3].textContent.toLowerCase().trim();
+                    const rowStatus = row.cells[4].textContent.toLowerCase().trim();
+
+                    // Check for matches
+                    const noMatch = rowNo.includes(noValue);
+                    const nameMatch = rowName.includes(nameValue);
+                    const typeMatch = typeValue === "" || rowType === typeValue;
+                    const statusMatch = statusValue === "" || rowStatus === statusValue;
+
+                    // Show or hide row based on all filters matching
+                    if (noMatch && nameMatch && typeMatch && statusMatch) {
+                        row.style.display = ''; // Show row
+                    } else {
+                        row.style.display = 'none'; // Hide row
+                    }
+                });
+            }
+
+            // Add event listeners to all filters
+            [filterNo, filterName, filterType, filterStatus].forEach(input => {
+                input.addEventListener('input', filterTenders);
+            });
+        });
+    </script>
+  </body>
+</html>
